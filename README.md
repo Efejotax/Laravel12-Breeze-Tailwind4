@@ -1,11 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
 ## About Laravel
 
@@ -57,8 +50,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+***
 
-# Instalación Limpia de proyecto Laravel 
+# REQUISITOS TÉCNICOS BÁSICOS NECESARIOS
+1. PHP 8.2 o superior
+2. MySQL o PostgreSQL (SQLite para pruebas)
+3. XAMPP, WAMPP o Laragon
+4. Composer
+5. Node JS
+
+
+## Instalación Limpia de proyecto Laravel 
 Dos opciones: a traves de Composer y con laravel Installer.
 ## Utilizamos laravel installer
 
@@ -126,70 +128,5 @@ El mayor riesgo es dejar el proyecto en un estado “híbrido” (Tailwind 4 + P
 Migrar el proyecto a Tailwind 4 (mínimo y limpio)
 Objetivo: dejar el proyecto en un estado coherente con Tailwind 4:
 
-Tailwind 4
-Sin PostCSS
-Sin autoprefixer
-Vite usando el plugin @tailwindcss/vite
-CSS usando @import "tailwindcss";
 
-1) Eliminar PostCSS del proyecto
-   Borra el fichero de configuración de PostCSS (si existe):
 
-postcss.config.js
-Nota: Si este fichero existe, Vite intentará cargar PostCSS y fallará si no tienes autoprefixer.
-
-2) Ajustar dependencias (package.json)
-   Asegúrate de que NO existan estas dependencias en devDependencies del fichero package.json . Puedes borrar directamente esas líneas:
-
-postcss
-autoprefixer
-tailwindcss versión 3
-Instala Tailwind 4 y el plugin oficial para Vite:
-
-tailwindcss
-@tailwindcss/vite
-- npm install -D tailwindcss@latest @tailwindcss/vite
-  tailwindcss@latest: Instala la versión más reciente de Tailwind (actualmente 4.x).
-
-@tailwindcss/vite Es imprescindible para Tailwind 4. Sustituye completamente a PostCSS con autoprefixer.
-
--D (–save-dev) Tailwind es una dependencia de desarrollo. (En producción, ya se transpila al css
-
-3) Limpiar instalación de npm y reinstalar
-   Elimina dependencias instaladas y el lockfile, y reinstala:
-
-rm -rf node_modules package-lock.json
-npm install
-
-borrar node_modules
-borrar package-lock.json
-ejecutar npm install
-Esto evita que queden restos de Tailwind 3 o PostCSS en caché.
-
-4) Configurar Vite para Tailwind 4
-   En vite.config.js añade el plugin:
-
-importar tailwindcss desde @tailwindcss/vite
-incluir tailwindcss() en plugins
-Debe quedar (estructura):
-
-/** @type {import('tailwindcss').Config} */
-export default {
-content: [
-'./resources/views/**/*.blade.php',
-'./resources/js/**/*.js',
-'./resources/css/**/*.css',
-],
-};
-
-5) Cambiar resources/css/app.css al formato Tailwind 4
-   En Tailwind 4 NO se usan directivas clásicas @tailwind ...;.
-
-El contenido mínimo recomendado es:
-
-@import "tailwindcss";
-6) Ejecutar Vite
-   Finalmente:
-
-npm run dev
-Si Vite arranca sin errores, Tailwind 4 está funcionando.
