@@ -28,7 +28,7 @@
     <div class="max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-5xl font-extrabold mb-4">Construye algo increíble</h2>
         <p class="text-lg opacity-90 mb-8">
-            Laravel 12 y Tailwind 4 te permiten crear aplicaciones modernas, rápidas y elegantes.
+            Laravel 12 + Tailwind 4 + Breeze te permiten crear aplicaciones modernas, rápidas, elegantes y seguras.
         </p>
 
         <a href="/home" class="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold shadow hover:bg-gray-100 transition">

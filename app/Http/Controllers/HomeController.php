@@ -6,26 +6,22 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-     public function index(){
-        return view('app.front.index');
+   /*  public function home(){
+        return view('/home');
+    }*/
+    public function home1(){
+        return view('app/front/home1');
     }
-    // Home1 -> Path /wiews/layout/template
-    public function home0(){
+    public function home2(){
+        return view('app.front.home2');
+    }
+    public function home3(){
+        return view('app.front.home3');
+    }
+    public function homeTemplate(){
         return view('layout.template');
     }
-    // Home1 -> Path /wiews/home
-    public function home1(){
-        return view('home');
-    }
-    // Home2 -> Path app/front/home
-    public function home2(){
-        return view('app.front.home');
-    }
-
-    public function homex(){
-        return view('app.front.homex');
-    }
-    public function saludoGenerico(){
+    public function saludoGeneral(){
         return "Hola Mundo desde IndexPage";
     }
     public function saludoUser($nombre){

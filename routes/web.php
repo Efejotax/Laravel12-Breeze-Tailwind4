@@ -2,10 +2,36 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
+
+//Path: /views/
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+//Path: /views/home
+// funciona sin Controlador
+/*Route::get('/', function () {
+    return view('home');
+});*/
+// Métod view() más rápido y directo si lo usamos sin controller
+Route::view('/', 'home')->name('home');
+
+//Path: /views/app/front/
+/*Route::get('/', function () {
+    return view('app/front/home1');
+});*/
+
+//Path: /views/app/front/
+/*Route::get('/', function () {
+    return view('app/front/home2');
+});*/
+
+//Path: /views/app/front/
+/*Route::get('/', function () {
+    return view('app/front/home3');
+});*/
 
 
 
