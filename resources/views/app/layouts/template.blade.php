@@ -26,7 +26,10 @@
             <!-- LINKS -->
             <ul class="flex space-x-6 text-lg">
                 <li><a href="/" class="hover:text-red-400 transition">Inicio</a></li>
+                <li><a href="#" class="hover:text-red-400 transition">Empresa</a></li>
+                <li><a href="#" class="hover:text-red-400 transition">Saludos</a></li>
                 <li><a href="#" class="hover:text-red-400 transition">Servicios</a></li>
+                <li><a href="#" class="hover:text-red-400 transition">Productos</a></li>
                 <li><a href="#" class="hover:text-red-400 transition">Contacto</a></li>
             </ul>
         </div>
