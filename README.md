@@ -129,4 +129,18 @@ Migrar el proyecto a Tailwind 4 (mínimo y limpio)
 Objetivo: dejar el proyecto en un estado coherente con Tailwind 4:
 
 
+Creando clases request para saludo:
+php artisan make:request StoreSaludoRequest
+php artisan make:request UpdateSaludoRequest
 
+Creando el Modelo Saludo:
+php artisan make:model Saludo
+
+Creando Policies para Saludo vinculado al moldelo Saludo
+php artisan make:policy SaludoPolicy --model=Saludo
+
+creando controladores 1. de tipo simple 2. de Resource y 3. de tipo Api
+php artisan make:controller SaludoControlle
+php artisan make:controller ProductController --resource
+php artisan make:controller ProductController --api
+php artisan make:controller Api/ProductController --api
