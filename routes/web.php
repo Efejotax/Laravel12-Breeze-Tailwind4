@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// RUTA RAIZ
+// DEFINIMOS LA RUTA RAÍZ:
 /*Route::get('/', function () {
     return view('index');
 });*/
@@ -17,15 +17,33 @@ use App\Http\Controllers\SaludoController;
 /*Route::get('/saludos', function () {
     return view('/saludos');
 } );*/
+// Ruta a rutas del menú main: envía a página simple para probar rutas de saludos de prueba
+Route::view('/crud', '/crud')->name('crud');
+Route::view('/rutas', '/rutas')->name('rutas');
+Route::view('/saludos', '/saludos')->name('saludos');
+// Rutas simples que llevan a una vista con template: dia , tarde y noche.
+//Route::view('/rutas/saludos/dia', '/rutas/saludos.dia')->name('rutas.saludos.dia');
+Route::view('saludos/dia', 'saludos.dia')->name('saludos.dia');
+Route::view('saludos/tarde', 'saludos.tarde')->name('saludos.tarde');
+Route::view('saludos/noche', 'saludos.noche')->name('saludos.noche');
+// Rutas simples que llevan a una vista con template: representan los métodos CRUD.
+Route::view('saludos/listar', 'saludos.index')->name('saludos.listar');
+Route::view('saludos/crear', 'saludos.create')->name('saludos.crear');
+Route::view('saludos/almacenar', 'saludos.store')->name('saludos.almacenar');
+Route::view('saludos/mostrar', 'saludos.show')->name('saludos.mostrar');
+Route::view('saludos/editar', 'saludos.edit')->name('saludos.editar');
+Route::view('saludos/actualizar', 'saludos.update')->name('saludos.actualizar');
+Route::view('saludos/destruir', 'saludos.destroy')->name('saludos.destruir');
+Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo');
 
 // Rutas con Controlador.
-// Devuelve ruta concreta y lanza el Method
+// Devuelve ruta concreta y lanza el correspondiente Method del SaludoController:
 // que ofrece una vista o un string html
-Route::get('/saludos/dia', [SaludoController::class, 'dia']);
+//Route::get('/saludos/dia', [SaludoController::class, 'dia']);
 Route::get('/saludos/tarde', [SaludoController::class, 'tarde']);
 Route::get('/saludos/noche', [SaludoController::class, 'noche']);
 
-// Rutas de tipo Resource:
+// Rutas de tipo Resource con Controller y Method:
 Route::get('/listar', [SaludoController::class, 'index']);
 Route::get('/crear', [SaludoController::class, 'create']);
 Route::post('/almacenar', [SaludoController::class, 'store']);
@@ -39,6 +57,9 @@ Route::delete('/destruir', [SaludoController::class, 'destroy']);
 // Rutas con Method view() parámetos: URL y path del template
 //Route::view('/saludos/', 'saludo.index');
 //Route::view('/saludos/dia', 'saludos.dia');
+/*Route::get('/saludos/dia', function () {
+    return view('saludos/dia');
+})->name('saludos.dia');*/
 //Route::view('/saludos/tarde', 'saludos.tarde');
 //Route::view('/saludos/noche', 'saludos.noche');
 
@@ -92,17 +113,36 @@ Route::get('/hola/{nombre}/{apellido?}', function ($nombre, $apellido=null) {
 });
 Route::view('saludos/holamundo', 'saludos.holamundo');*/
 
+//Route::get('/saludo{i}', [SaludoController::class, 'show'])->name('saludo{i}');
+
+// Rutas en bucle con variables:
+/*foreach (range(1, 20) as $i) {
+    Route::get('/saludo'.$i, function () use ($i) {
+        return "Hola desde saludo $i";
+    })->name('saludo'.$i);
+}*/
+/*foreach (range(1, 20) as $i) {
+    Route::get('/saludo'.$i, function () use ($i) {
+       return view('saludo/saludo', ['nombre' => $i]);
+    })->name('saludo'.$i);
+}*/
+/*foreach (range(1, 20) as $i) {
+    Route::get('/rutas'.$i, function () use ($i) {
+       return view('rutas', ['rutas' => $i]);
+    })->name('rutas'.$i);
+}*/
+
 
 // PRODUCT CONTROLLER
 use App\Http\Controllers\ProductController;
-Route::get('/listar', [SaludoController::class, 'index']);
-Route::get('/crear', [SaludoController::class, 'create']);
-Route::post('/almacenar', [SaludoController::class, 'store']);
-Route::get('/mostrar', [SaludoController::class, 'show']);
-Route::get('/editar', [SaludoController::class, 'edit']);
-Route::put('/actualizar', [SaludoController::class, 'update']);
-//Route::patch('/actualizar', [SaludoController::class, 'update']);
-Route::delete('/destruir', [SaludoController::class, 'destroy']);
+Route::get('/listar', [ProductController::class, 'index']);
+Route::get('/crear', [ProductController::class, 'create']);
+Route::post('/almacenar', [ProductController::class, 'store']);
+Route::get('/mostrar', [ProductController::class, 'show']);
+Route::get('/editar', [ProductController::class, 'edit']);
+Route::put('/actualizar', [ProductController::class, 'update']);
+//Route::patch('/actualizar', [ProductController::class, 'update']);
+Route::delete('/destruir', [ProductController::class, 'destroy']);
 
 
 
@@ -116,7 +156,7 @@ Route::delete('/destruir', [SaludoController::class, 'destroy']);
 
 
 
-
+// RUTAS AUTH:
 // Rutas creadasautomáticamente cuando instalamos Breeze para la autenticación //
 Route::get('/dashboard', function () {
     return view('dashboard');

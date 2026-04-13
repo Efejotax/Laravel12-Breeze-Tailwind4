@@ -1,14 +1,41 @@
+
 @extends('app.layouts.template')
-@section('titulo', 'Página de Rutas Saludos CRUD - create')
+@section('titulo', 'Página de Rutas Saludos y CRUD pruebas')
 @section('contenido')
 
     <!-- MAIN CONTENT-->
 
     <div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
         <div class="max-w-4xl w-full">
-            <h1 class="text-6xl font-bold mb-6 text-center bg-amber-300 p-6">Rutas de Prueba</h1>
+            <h1 class="text-6xl font-bold mb-6 text-center bg-amber-300 p-6">Total Rutas de Prueba</h1>
 
-            <h2 class="text-3xl font-bold mb-6 text-center bg-pink-200 p-3">Crear Saludo</h2>
+            <h2 class="text-3xl font-bold mb-6 text-center bg-blue-200 p-3">Saludos Horarios</h2>
+
+            {{-- Menú Rutas estilizado 1 --}}
+            <div class="flex justify-center my-8">
+                <ul class="flex space-x-6 text-lg font-semibold">
+                    <li>
+                        <a href="/saludos/dia"
+                           class="px-6 py-2 bg-yellow-400 text-black rounded-lg shadow hover:bg-yellow-500 transition">
+                            Día
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/saludos/tarde"
+                           class="px-6 py-2 bg-orange-500 text-black  rounded-lg shadow hover:bg-orange-600 transition">
+                            Tarde
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/saludos/noche"
+                           class="px-6 py-2 bg-red-700 text-black  rounded-lg shadow hover:bg-red-800 transition">
+                            Noche
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
             <h2 class="text-3xl font-bold mb-6 text-center bg-blue-200 p-3">Saludos CRUD + Hola Mundo</h2>
 
