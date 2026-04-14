@@ -1,12 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('titulo', 'app-laravel 12')</title>
+    {{--título--}}
+    <title>@yield('titulo', 'app laravel 12')</title>
+
+    {{--Favicon--}}
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
+
+    {{-- Linkeando estilos en path: public/assets --}}
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    {{-- Directiva Blade para importar los estilos css y el JS --}}
+    <link rel="stylesheet" href="{{asset('assets/css/saludos.css')}}">
+    @yield('stilos-css')
+
+
+    {{-- Directiva Blade para importar los estilos css y el JS - definida en Vite.config.js --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -23,17 +32,8 @@
                 <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="h-12 w-auto">
             </a>
 
-            <!-- LINKS -->
-            <ul class="flex space-x-6 text-lg">
-                <li><a href="/" class="hover:text-red-400 transition">Inicio</a></li>
-                <li><a href="#" class="hover:text-red-400 transition">Empresa</a></li>
-                <li><a href="#" class="hover:text-red-400 transition">Servicios</a></li>
-                <li><a href="#" class="hover:text-red-400 transition">Productos</a></li>
-                <li><a href="#" class="hover:text-red-400 transition">Contacto</a></li>
-                <li class="text-slate-400"><a href="/rutas" class="hover:text-red-400 transition">Rutas</a></li>
-                <li class="text-slate-400"><a href="/crud" class="hover:text-red-400 transition">Crud</a></li>
-                <li class="text-slate-400"><a href="/saludos" class="hover:text-red-400 transition">Saludos</a></li>
-            </ul>
+            <!-- MENU NAV BAR LINKS -->
+            @include('app.partials.menu-main-navbar')
         </div>
 
         <!-- LOGIN / REGISTER / USER (A LA DERECHA) -->
@@ -69,7 +69,7 @@
 </header>
 
 
-@yield('contenido')
+@yield('main-content')
 
 @yield('menu-rutas-2')
 @yield('menu-rutas-1')

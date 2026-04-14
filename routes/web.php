@@ -33,7 +33,7 @@ Route::view('saludos/almacenar', 'saludos.store')->name('saludos.almacenar');
 Route::view('saludos/mostrar', 'saludos.show')->name('saludos.mostrar');
 Route::view('saludos/editar', 'saludos.edit')->name('saludos.editar');
 Route::view('saludos/actualizar', 'saludos.update')->name('saludos.actualizar');
-Route::view('saludos/destruir', 'saludos.destroy')->name('saludos.destruir');
+Route::view('saludos/borrar', 'saludos.destroy')->name('saludos.borrar');
 Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo');
 
 // Rutas con Controlador.
@@ -51,7 +51,7 @@ Route::get('/mostrar', [SaludoController::class, 'show']);
 Route::get('/editar', [SaludoController::class, 'edit']);
 Route::put('/actualizar', [SaludoController::class, 'update']);
 //Route::patch('/actualizar', [SaludoController::class, 'update']);
-Route::delete('/destruir', [SaludoController::class, 'destroy']);
+Route::delete('/borrar', [SaludoController::class, 'destroy']);
 
 
 // Rutas con Method view() parámetos: URL y path del template
@@ -142,7 +142,7 @@ Route::get('/mostrar', [ProductController::class, 'show']);
 Route::get('/editar', [ProductController::class, 'edit']);
 Route::put('/actualizar', [ProductController::class, 'update']);
 //Route::patch('/actualizar', [ProductController::class, 'update']);
-Route::delete('/destruir', [ProductController::class, 'destroy']);
+Route::delete('/borrar', [ProductController::class, 'destroy']);
 
 
 
