@@ -28,7 +28,7 @@
         <!-- LOGO + LINKS IZQUIERDA -->
         <div class="flex items-center space-x-8">
             <!-- LOGO -->
-            <a href="/" class="flex items-center">
+            <a href="{{ route('index')  }}" class="flex items-center">
                 <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="h-12 w-auto">
             </a>
 

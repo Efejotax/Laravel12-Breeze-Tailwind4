@@ -44,9 +44,9 @@
         </li>
 
         <li>
-            <a href="/saludos/borrar"
+            <a href="/saludos/eliminar"
                class="block text-center px-6 py-3 bg-indigo-300 text-black rounded-lg shadow hover:bg-indigo-400 transition">
-                Borrar
+                Eliminar
             </a>
         </li>
 

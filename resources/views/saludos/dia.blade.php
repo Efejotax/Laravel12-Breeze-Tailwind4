@@ -1,6 +1,6 @@
 @extends('app.layouts.template')
 
-@section('contenido')
+@section('main-content')
 <h1 class="text-6xl font-bold mb-6 text-center bg-amber-300 p-6">Buenos días / método dia() / return view()</h1>
 <h2 class="text-3xl font-bold mb-6 text-center bg-blue-200">Saludo por la mañana</h2>
 <h3 class="text-3xl font-bold mb-6 text-center bg-blue-200">Saludos desde método dia()</h3>

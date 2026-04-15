@@ -3,13 +3,60 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// DEFINIMOS LA RUTA RAÍZ:
+
+// DEFINIMOS LA RUTA RAÍZ - (Index / Home / Inicio):
+// INDEX --> página principal Raiz con URL: '/'
+Route::get('/', function () {
+    return view('app.front.index');
+})->name('index');
+
+// Probando que se pueden generar más rutas de inicio:
+
+// INDEX2 --> pero con URL: '/index'
+Route::get('/index', function () {
+    return view('app.front.index');
+})->name('index2');
+
+// HOME --> enlace en el logo
+Route::view('/home', 'app.front.home')->name('home');
+
+// INICIO --> enlace en menú
+Route::view('/inicio', 'app.front.inicio')->name('inicio');
+
+// Varias formas de definir la ruta sin Controller por method get y view:
+// Como la ruta index general no vamos a usarla, la comentamos.
 /*Route::get('/', function () {
     return view('index');
 });*/
+/*Route::get('/', function () {
+    return view('app.front.index');
+})->name('index');
+Route::view('/', 'index')->name('index');*/
+// HOME --> enlace en el logo
+/*Route::view('/home', 'app/front/home')->name('home');
 Route::get('/', function () {
     return view('app/front/home');
+})->name('inicio');*/
+// INICIO --> enlace en menu
+/*Route::view('/inicio', 'app.front.inicio')->name('inicio');
+Route::get('/', function () {
+    return view('app/front/inicio');
+})->name('inicio');*/
+
+
+// RUTAS PÁGINAS INFO ESTÁTICAS Y SIN LOGICA .- por get y por view
+/*Route::get('/empresa', function () {
+    return view('app/front/empresa');
+});*/
+Route::get('/contacto', function () {
+    return view('app/front/contacto');
 });
+// Páginas estáticas de pruebas:
+Route::view('/contacto', 'app/front/contacto')->name('contacto');
+Route::view('/empresa', 'app/front/empresa')->name('empresa');
+Route::view('/servicios', 'app/front/servicios')->name('servicios');
+Route::view('/productos', 'app/front/productos')->name('productos');
+Route::view('orm-crud', 'app/front.orm-crud')->name('orm-crud');
 
 // SALUDO CONTROLLER
 use App\Http\Controllers\SaludoController;
@@ -17,6 +64,11 @@ use App\Http\Controllers\SaludoController;
 /*Route::get('/saludos', function () {
     return view('/saludos');
 } );*/
+
+// Rutas máxima simplicidad:
+Route::view('/saludo', 'saludo')->name('saludo');
+Route::view('/ruta', 'ruta')->name('ruta');
+
 // Ruta a rutas del menú main: envía a página simple para probar rutas de saludos de prueba
 Route::view('/crud', '/crud')->name('crud');
 Route::view('/rutas', '/rutas')->name('rutas');
@@ -33,7 +85,7 @@ Route::view('saludos/almacenar', 'saludos.store')->name('saludos.almacenar');
 Route::view('saludos/mostrar', 'saludos.show')->name('saludos.mostrar');
 Route::view('saludos/editar', 'saludos.edit')->name('saludos.editar');
 Route::view('saludos/actualizar', 'saludos.update')->name('saludos.actualizar');
-Route::view('saludos/borrar', 'saludos.destroy')->name('saludos.borrar');
+Route::view('saludos/eliminar', 'saludos.destroy')->name('saludos.eliminar');
 Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo');
 
 // Rutas con Controlador.
@@ -51,7 +103,7 @@ Route::get('/mostrar', [SaludoController::class, 'show']);
 Route::get('/editar', [SaludoController::class, 'edit']);
 Route::put('/actualizar', [SaludoController::class, 'update']);
 //Route::patch('/actualizar', [SaludoController::class, 'update']);
-Route::delete('/borrar', [SaludoController::class, 'destroy']);
+Route::delete('/eliminar', [SaludoController::class, 'destroy']);
 
 
 // Rutas con Method view() parámetos: URL y path del template
@@ -132,6 +184,10 @@ Route::view('saludos/holamundo', 'saludos.holamundo');*/
     })->name('rutas'.$i);
 }*/
 
+//
+
+
+
 
 // PRODUCT CONTROLLER
 use App\Http\Controllers\ProductController;
@@ -142,7 +198,7 @@ Route::get('/mostrar', [ProductController::class, 'show']);
 Route::get('/editar', [ProductController::class, 'edit']);
 Route::put('/actualizar', [ProductController::class, 'update']);
 //Route::patch('/actualizar', [ProductController::class, 'update']);
-Route::delete('/borrar', [ProductController::class, 'destroy']);
+Route::delete('/eliminar', [ProductController::class, 'destroy']);
 
 
 
