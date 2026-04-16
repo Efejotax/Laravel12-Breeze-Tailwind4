@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Controller de tipo --Resource:
+// Dispone de 7 Acciones o Methods: (index, create, store, show, edit, update, destroy)
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. Acción: Listar mostrar todos los recursos
      */
     public function index()
     {
@@ -15,7 +17,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. Acción: Crear
      */
     public function create()
     {
@@ -23,7 +25,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. Acción: Almacenar Guardar
+     * Requiere implementar la Clase Request: StoreProductRequest
      */
     public function store(Request $request)
     {
@@ -31,7 +34,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. Acción: Mostrar un recurso
      */
     public function show(string $id)
     {
@@ -39,7 +42,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource. Acción: Editar
      */
     public function edit(string $id)
     {
@@ -47,7 +50,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. Acción: Actualizar
+     *  Requiere implementar la Clase Request: UpdateProductRequest
      */
     public function update(Request $request, string $id)
     {
@@ -55,7 +59,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage. Acción: Eliminar
      */
     public function destroy(string $id)
     {

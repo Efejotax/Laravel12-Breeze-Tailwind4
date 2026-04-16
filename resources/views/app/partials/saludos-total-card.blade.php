@@ -1,5 +1,14 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
 
+    <!-- CARD 10 - Saludo CRUD HolaMundo -->
+    <a href="/crud" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
+        <img src="{{ asset('assets/img/hello-world.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo HolaMundo">
+        <div class="p-4 text-center">
+            <h3 class="text-xl font-bold">Hola Mundo</h3>
+            <h4>prueba general</h4>
+        </div>
+    </a>
+
     <!-- CARD 1 Saludos día-->
     <a href="/saludos/dia" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
         <img src="{{ asset('assets/img/saludos.jpg') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo día">
@@ -36,6 +45,11 @@
         </div>
     </a>
 
+</div>
+
+{{--FILA 2--}}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
+
     <!-- CARD 5 - Saludo CRUD Crear (create)-->
     <a href="saludos/crear" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
         <img src="{{ asset('assets/img/crud.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="saludo CRUD create">
@@ -44,11 +58,6 @@
             <h4>Método Create</h4>
         </div>
     </a>
-
-</div>
-
-{{--FILA 2--}}
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
 
     <!-- CARD 6 - Saludo CRUD Almacenar (store)-->
     <a href="saludos/almacenar" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
@@ -69,30 +78,25 @@
     </a>
 
     <!-- CARD 8 - Saludo CRUD Actualizar (update) -->
-    <a href="/saludos/tarde" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="{{ asset('assets/img/crud.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo CRUD update">
+    <a href="/saludos/actualizar" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
+        <img src="{{ asset('assets/img/crud.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo CRUD Update">
         <div class="p-4 text-center">
             <h3 class="text-xl font-bold">Hola Actualizar</h3>
-            <h4>Método Update</h4>
+            <h4>Método Update (PUT) y (PATCH)</h4>
         </div>
     </a>
 
     <!-- CARD 9 - Saludo CRUD Borrar (destroy) -->
     <a href="/saludos/eliminar" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="{{ asset('assets/img/crud.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo CRUD eliminar">
+        <img src="{{ asset('assets/img/crud.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo CRUD Eliminar">
         <div class="p-4 text-center">
             <h3 class="text-xl font-bold">Hola Eliminar</h3>
-            <h4>Método Destroy</h4>
+            <h4>Método Destroy (DELETE)</h4>
         </div>
     </a>
 
-    <!-- CARD 10 - Saludo CRUD HolaMundo -->
-    <a href="/crud" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="{{ asset('assets/img/hello-world.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo HolaMundo">
-        <div class="p-4 text-center">
-            <h3 class="text-xl font-bold">Hola Mundo</h3>
-            <h4>prueba general</h4>
-        </div>
-    </a>
+
+
+
 
 </div>

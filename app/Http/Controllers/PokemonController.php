@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Controller de tipo --API: No Create y No Edit.
+//  Dispone de 5 Acciones o Methods: (index, store, show, update, destroy)
 class PokemonController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. Acción: Listar mostrar todos los recursos
      */
     public function index()
     {
@@ -15,7 +17,8 @@ class PokemonController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. Acción: Almacenar Guardar
+     * Requiere implementar la Clase Request: StorePokemonRequest
      */
     public function store(Request $request)
     {
@@ -23,7 +26,7 @@ class PokemonController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. Acción: Mostrar un recurso
      */
     public function show(string $id)
     {
@@ -31,7 +34,8 @@ class PokemonController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. Acción: Actualizar
+     *  Requiere implementar la Clase Request: UpdatePokemonRequest
      */
     public function update(Request $request, string $id)
     {
@@ -39,7 +43,7 @@ class PokemonController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage. Acción: Eliminar
      */
     public function destroy(string $id)
     {

@@ -8,7 +8,7 @@
 
     <div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
         <div class="max-w-4xl w-full">
-            <h1 class="text-6xl font-bold mb-6 text-center bg-amber-300 p-6">Todos los Saludos</h1>
+            <h1 class="text-5xl font-bold mb-6 text-center bg-amber-300 p-6">Todos los Saludos</h1>
 
             {{--Mini ruta: saludo--}}
             <div class="text-center mb-6">

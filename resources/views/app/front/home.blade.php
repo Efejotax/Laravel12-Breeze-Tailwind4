@@ -9,7 +9,7 @@
 
         <!-- TÍTULO -->
         <div class="py-6 mb-10 text-center bg-red-600 rounded-lg shadow">
-            <h1 class="text-white text-3xl font-bold">Bienvenido a Inicio</h1>
+            <h1 class="text-white text-3xl font-bold">Bienvenido a Home</h1>
         </div>
 
         <div class="py-6 mb-10 text-center bg-gray-400 rounded-lg shadow">

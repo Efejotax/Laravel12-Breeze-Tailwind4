@@ -16,6 +16,7 @@
 
 
     {{-- Directiva Blade para importar los estilos css y el JS - definida en Vite.config.js --}}
+    {{--Importante: Solo se incluye aquí, en el layout principal--}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

@@ -4,6 +4,16 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
+// Redirección del Dashboard a la raíz:
+/*Route::get('/dashboard', function () {
+    return redirect('/');
+});*/
+// Redirección del Dashboard a una ruta determinada:
+/*Route::get('/dashboard', function () {
+    return redirect()->route('home');
+});*/
+
+
 // DEFINIMOS LA RUTA RAÍZ - (Index / Home / Inicio):
 // INDEX --> página principal Raiz con URL: '/'
 Route::get('/', function () {
@@ -91,9 +101,23 @@ Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo')
 // Rutas con Controlador.
 // Devuelve ruta concreta y lanza el correspondiente Method del SaludoController:
 // que ofrece una vista o un string html
-//Route::get('/saludos/dia', [SaludoController::class, 'dia']);
+/*Route::get('/saludos/dia', [SaludoController::class, 'dia']);
 Route::get('/saludos/tarde', [SaludoController::class, 'tarde']);
-Route::get('/saludos/noche', [SaludoController::class, 'noche']);
+Route::get('/saludos/noche', [SaludoController::class, 'noche']);*/
+
+
+// Saludos con CONTROLLER
+// Rutas saludo de pruebas con Controlador
+// y retorna un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
+Route::get('/saludos/good-morning', [SaludoController::class, 'goodMorning'])->name('goodMorning');
+Route::get('/saludos/good-afternoon', [SaludoController::class, 'goodAfternoon'])->name('goodAfternoon');
+Route::get('/saludos/good-night', [SaludoController::class, 'goodNight'])->name('goodNight');
+
+// Rutas saludo de pruebas con Controlador
+// y retorna un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
+//Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldNowdoc'])->name('helloworld');
+Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldHeredoc'])->name('helloworld');
+
 
 // Rutas de tipo Resource con Controller y Method:
 Route::get('/listar', [SaludoController::class, 'index']);
@@ -148,15 +172,25 @@ Route::get('/saludos/noche', function () {
     return "<h1>Buenas noches</h1>";
 } );*/
 
-// Ruta parametrizada con un argumento
+// Ruta parametrizada con un argumento.
+// Usando array asociativo y method compact()
 Route::get('/hola/{nombre}', function ($nombre) {
     return view('saludos/holamundo', ['nombre' => $nombre]);
     //return "<h1>Hola {$nombre}</h1>";
 } );
+Route::get('/hola/{nombre}', function ($nombre) {
+    return view('saludos/holamundo', compact('nombre'));
+    //return "<h1>Hola {$nombre}</h1>";
+} );
 // Ruta parametrizada con 2 argumentos y el 2º es opcional,
-// aunque si no la ponemos en la URL como param de un error
+// aunque si no la ponemos en la URL como param de un error.
+// Usando array asociativo y method compact()
 Route::get('/hola/{nombre}/{apellido?}', function ($nombre, $apellido=null) {
     return view('saludos/holamundo', ['nombre' => $nombre, 'apellido' => $apellido]);
+    //return "<h1>Hola {$nombre} {$apellido}</h1>";
+} );
+Route::get('/hola/{nombre}/{apellido?}', function ($nombre, $apellido=null) {
+    return view('saludos/holamundo', compact('nombre', 'apellido'));
     //return "<h1>Hola {$nombre} {$apellido}</h1>";
 } );
 
@@ -184,9 +218,6 @@ Route::view('saludos/holamundo', 'saludos.holamundo');*/
     })->name('rutas'.$i);
 }*/
 
-//
-
-
 
 
 // PRODUCT CONTROLLER
@@ -204,24 +235,19 @@ Route::delete('/eliminar', [ProductController::class, 'destroy']);
 
 
 
-
-
-
-
-
-
-
-
 // RUTAS AUTH:
 // Rutas creadasautomáticamente cuando instalamos Breeze para la autenticación //
+//*****************************************************************************//
+// Ruta del dashboard cuando hacemos login:
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Rutas middleware en grupo asociadas a los métodos edit, update y destroy:
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 require __DIR__.'/auth.php';
+//***************************************************************************************************************//
