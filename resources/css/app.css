@@ -1,10 +1,40 @@
 @import "tailwindcss";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views!*.blade.php';
+@source '../../storage/framework/views!*.php';
+@source '..!**!*.blade.php';
+@source '..!**!*.js';
+@plugin "daisyui";
 
+/*@tailwind utilities;*/
+/*@import "daisyui";*/
+/*@tailwind base;
+@tailwind components;*/
+/*Comentarios: con Tailwind 4 ya no son compatibles*/
 
 @theme {
     --font-sans: "Figtree", sans-serif;
+   /* --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';*/
+
+    /*style="height:10vh"*/
+    --height-header:15vh;
+    --height-main:65vh;
+    --height-footer:10vh;
+    --height-nav:10vh;
+
+    /*style="backgroud-color:#ffAAGG"*/
+    --color-header:#56D9E5;
+    --color-nav:#A4E0E6;
+    --color-main:#FFFFFF;
+    --color-footer:#000000;
+    --color-titulo:#8C1D07;
 
 }
+
+.boton{
+    @apply bg-amber-300 text-5xl
+}
+
 
 
 

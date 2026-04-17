@@ -16,7 +16,7 @@
 
                 <!-- Email Address -->
                 <div>
-                    <p>Email Address</p>
+                    <p> {{ __('Email Address') }}</p>
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block mt-1 w-full"
                                   type="email" name="email"
@@ -26,7 +26,7 @@
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <p>Password</p>
+                    <p>{{ __('Password')}}</p>
                     <x-input-label for="password" :value="__('Password')" />
                     <x-text-input id="password" class="block mt-1 w-full"
                                   type="password" name="password"

@@ -1,5 +1,6 @@
 @extends('app.layouts.template')
 
+
 @section('titulo', 'ORM & CRUD')
 
 @section('main-content')

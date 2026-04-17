@@ -13,7 +13,7 @@
             <h2 class="text-3xl font-bold mb-6 text-center bg-blue-200 p-3">Saludos CRUD + Hola Mundo</h2>
 
             {{-- Menú Botones CRUD --}}
-            @include('app.partials.saludos-botones-crud')
+            @include('app.partials.saludos-botones-rutas')
 
         </div>
     </div>

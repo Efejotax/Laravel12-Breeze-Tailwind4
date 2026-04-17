@@ -1,5 +1,17 @@
 @extends('app.layouts.template')
-@section('titulo', 'Página de Rutas Saludos y CRUD pruebas')
+@section('titulo', 'Página Saludos y CRUD pruebas')
+
+{{--@section('estilos-css')  // forma incorrecta !!!
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+@endsection--}}
+
+{{--Forma acorrecta--}}
+@section('css-extra')
+    @vite(['resources/css/crud.css'])
+@endsection
+
+{{--Forma correcta pero menos limpia--}}
+{{--@vite(['resources/css/crud.css'])--}}
 
 {{--injección o llamada al contenido main que definimos en el template general--}}
 @section('main-content')
@@ -14,8 +26,12 @@
 
         <h2 class="text-3xl font-bold mb-6 text-center bg-blue-200 p-3">Saludos CRUD + Hola Mundo</h2>
 
-        @include('app/partials/saludos-botones-crud')
+        @include('app/partials/saludos-botones-rutas')
 
     </div>
 </div>
+@endsection
+
+@section('scripts-js')
+    {{--scripts js--}}
 @endsection

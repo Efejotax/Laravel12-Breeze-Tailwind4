@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10">
 
     <!-- CARD 10 - Saludo CRUD HolaMundo -->
-    <a href="/crud" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
+    <a href="/saludos/holamundo" class="bg-white shadow-md rounded-lg overflow-hidden hover:scale-105 transition">
         <img src="{{ asset('assets/img/hello-world.png') }}" class="w-full h-32 object-contain bg-white p-2" alt="Saludo HolaMundo">
         <div class="p-4 text-center">
             <h3 class="text-xl font-bold">Hola Mundo</h3>

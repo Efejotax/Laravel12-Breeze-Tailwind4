@@ -1,6 +1,18 @@
 @extends('app.layouts.template')
 @section('titulo', 'Página de Rutas Saludos y CRUD pruebas')
 
+{{--@section('estilos-css')  // forma incorrecta !!!
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+@endsection--}}
+
+{{--Forma acorrecta--}}
+@section('css-extra')
+    @vite(['resources/css/rutas.css'])
+@endsection
+
+{{--Forma correcta pero menos limpia--}}
+{{--@vite(['resources/css/rutas.css'])--}}
+
 {{--injección o llamada al contenido main que definimos en el template general--}}
 @section('main-content')
 

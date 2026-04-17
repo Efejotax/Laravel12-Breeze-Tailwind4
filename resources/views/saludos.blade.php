@@ -1,11 +1,22 @@
 @extends('app.layouts.template')
-@section('titulo', 'Página de Rutas Saludos')
+@section('titulo', 'Página de Saludos')
+
+{{--@section('estilos-css')  // forma incorrecta !!!
+    <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+@endsection--}}
+
+{{--Forma acorrecta--}}
+@section('css-extra')
+    @vite(['resources/css/saludos.css'])
+@endsection
+
+{{--Forma correcta pero menos limpia--}}
+{{--@vite(['resources/css/saludos.css'])--}}
 
 {{--injección o llamada al contenido main que definimos en el template general--}}
 @section('main-content')
 
     <!-- MAIN CONTENT-->
-
     <div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
         <div class="max-w-4xl w-full">
             <h1 class="text-5xl font-bold mb-6 text-center bg-amber-300 p-6">Todos los Saludos</h1>
@@ -35,3 +46,6 @@
     </div>
 @endsection
 
+@section('scripts-js')
+ {{--scripts js--}}
+@endsection

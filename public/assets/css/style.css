@@ -1,3 +1,6 @@
-body {
+/* estos estilos no se compilan con Vite */
+/* Los estilos para usar compilar y transpilar están el path: resources/css */
+
+/*body {
     background-color: #7b7c7c;
-}
+}*/

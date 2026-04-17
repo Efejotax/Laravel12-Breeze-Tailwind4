@@ -13,3 +13,6 @@
 
 @endsection
 
+@section('scripts-js')
+    {{--scripts js--}}
+@endsection

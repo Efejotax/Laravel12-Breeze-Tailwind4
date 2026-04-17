@@ -1,4 +1,5 @@
-@extends('app.layouts.template')
+{{--@extends('app.layouts.template')--}}
+@extends(auth()->check() ? 'app.layouts.template-back' : 'app.layouts.template')
 
 @section('titulo', 'Página Inicio')
 {{--@section('estilos-css')--}}

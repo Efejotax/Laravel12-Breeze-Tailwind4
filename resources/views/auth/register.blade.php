@@ -13,7 +13,7 @@
 
                 <!-- Name -->
                 <div>
-                    <p>Name</p>
+                    <p>{{ __('Name')}}</p>
                     <x-input-label for="name" :value="__('Name')" />
                     <x-text-input id="name" class="block mt-1 w-full"
                                   type="text" name="name"
@@ -23,7 +23,7 @@
 
                 <!-- Email Address -->
                 <div class="mt-4">
-                    <p>Email Address</p>
+                    <p>{{ __('Email Address')}}</p>
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block mt-1 w-full"
                                   type="email" name="email"
@@ -33,7 +33,7 @@
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <p>Password</p>
+                    <p>{{ __('Password')}}</p>
                     <x-input-label for="password" :value="__('Password')" />
                     <x-text-input id="password" class="block mt-1 w-full"
                                   type="password" name="password"
@@ -43,7 +43,7 @@
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <p>Confirm Password</p>
+                    <p>{{ __('Confirm Password')}}</p>
                     <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
                     <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                   type="password" name="password_confirmation"

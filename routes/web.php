@@ -1,4 +1,5 @@
 <?php
+Route::view('/test-saludos', 'saludos')->name('test-saludos');
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -66,7 +67,7 @@ Route::view('/contacto', 'app/front/contacto')->name('contacto');
 Route::view('/empresa', 'app/front/empresa')->name('empresa');
 Route::view('/servicios', 'app/front/servicios')->name('servicios');
 Route::view('/productos', 'app/front/productos')->name('productos');
-Route::view('orm-crud', 'app/front.orm-crud')->name('orm-crud');
+Route::view('/orm-crud', 'app/front.orm-crud')->name('orm-crud');
 
 // SALUDO CONTROLLER
 use App\Http\Controllers\SaludoController;
@@ -75,20 +76,22 @@ use App\Http\Controllers\SaludoController;
     return view('/saludos');
 } );*/
 
-// Rutas máxima simplicidad:
+// Rutas máxima simplicidad y en singular:
 Route::view('/saludo', 'saludo')->name('saludo');
 Route::view('/ruta', 'ruta')->name('ruta');
 
-// Ruta a rutas del menú main: envía a página simple para probar rutas de saludos de prueba
-Route::view('/crud', '/crud')->name('crud');
-Route::view('/rutas', '/rutas')->name('rutas');
-Route::view('/saludos', '/saludos')->name('saludos');
+// Rutas del menú main: envía a página simple para probar rutas de saludos:
+Route::view('/crud', 'crud')->name('crud');
+Route::view('/rutas', 'rutas')->name('rutas');
+Route::view('/saludos', 'saludos')->name('saludos');
 // Rutas simples que llevan a una vista con template: dia , tarde y noche.
 //Route::view('/rutas/saludos/dia', '/rutas/saludos.dia')->name('rutas.saludos.dia');
 Route::view('saludos/dia', 'saludos.dia')->name('saludos.dia');
 Route::view('saludos/tarde', 'saludos.tarde')->name('saludos.tarde');
 Route::view('saludos/noche', 'saludos.noche')->name('saludos.noche');
-// Rutas simples que llevan a una vista con template: representan los métodos CRUD.
+Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo');
+
+// Rutas simples que llevan a una vista con template: representan los métodos CRUD del Controlador:
 Route::view('saludos/listar', 'saludos.index')->name('saludos.listar');
 Route::view('saludos/crear', 'saludos.create')->name('saludos.crear');
 Route::view('saludos/almacenar', 'saludos.store')->name('saludos.almacenar');
@@ -96,7 +99,6 @@ Route::view('saludos/mostrar', 'saludos.show')->name('saludos.mostrar');
 Route::view('saludos/editar', 'saludos.edit')->name('saludos.editar');
 Route::view('saludos/actualizar', 'saludos.update')->name('saludos.actualizar');
 Route::view('saludos/eliminar', 'saludos.destroy')->name('saludos.eliminar');
-Route::view('saludos/holamundo', 'saludos.holamundo')->name('saludos.holamundo');
 
 // Rutas con Controlador.
 // Devuelve ruta concreta y lanza el correspondiente Method del SaludoController:
@@ -106,20 +108,20 @@ Route::get('/saludos/tarde', [SaludoController::class, 'tarde']);
 Route::get('/saludos/noche', [SaludoController::class, 'noche']);*/
 
 
-// Saludos con CONTROLLER
-// Rutas saludo de pruebas con Controlador
-// y retorna un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
+// Saludos con CONTROLLER pero sin Vista.
+// Puede retornar un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
 Route::get('/saludos/good-morning', [SaludoController::class, 'goodMorning'])->name('goodMorning');
 Route::get('/saludos/good-afternoon', [SaludoController::class, 'goodAfternoon'])->name('goodAfternoon');
 Route::get('/saludos/good-night', [SaludoController::class, 'goodNight'])->name('goodNight');
 
-// Rutas saludo de pruebas con Controlador
-// y retorna un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
+// Saludos con CONTROLLER pero sin Vista.
+// Puede retornar un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
 //Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldNowdoc'])->name('helloworld');
 Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldHeredoc'])->name('helloworld');
 
 
-// Rutas de tipo Resource con Controller y Method:
+// Rutas Resource (6 o 7 endpoints)
+// Rutas de tipo CRUD Resource con Controller y Method:
 Route::get('/listar', [SaludoController::class, 'index']);
 Route::get('/crear', [SaludoController::class, 'create']);
 Route::post('/almacenar', [SaludoController::class, 'store']);
@@ -128,6 +130,29 @@ Route::get('/editar', [SaludoController::class, 'edit']);
 Route::put('/actualizar', [SaludoController::class, 'update']);
 //Route::patch('/actualizar', [SaludoController::class, 'update']);
 Route::delete('/eliminar', [SaludoController::class, 'destroy']);
+
+/*
+para una API RESTful estándar, las rutas se reducen a 5 endpoints principales, porque en API REST:
+
+NO existe create() → el cliente ya sabe crear
+
+NO existe edit() → el cliente ya sabe editar
+
+show() sí existe, pero con un ID obligatorio
+*/
+
+// Rutas API REST (5 endpoints)
+// Rutas de tipo API Restfull con Controller y Method:
+// Listar todos los registros
+//Route::get('/saludos', [SaludoController::class, 'index']);
+// Crear un nuevo registro (enviar datos)
+//Route::post('/saludos', [SaludoController::class, 'store']);
+// Mostrar un registro concreto
+//Route::get('/saludos/{id}', [SaludoController::class, 'show']);
+// Actualizar un registro concreto
+//Route::put('/saludos/{id}', [SaludoController::class, 'update']);
+// Eliminar un registro concreto
+//Route::delete('/saludos/{id}', [SaludoController::class, 'destroy']);
 
 
 // Rutas con Method view() parámetos: URL y path del template
@@ -219,8 +244,7 @@ Route::view('saludos/holamundo', 'saludos.holamundo');*/
 }*/
 
 
-
-// PRODUCT CONTROLLER
+// PRODUCT CONTROLLER tipo RESOURCE:
 use App\Http\Controllers\ProductController;
 Route::get('/listar', [ProductController::class, 'index']);
 Route::get('/crear', [ProductController::class, 'create']);
@@ -228,11 +252,14 @@ Route::post('/almacenar', [ProductController::class, 'store']);
 Route::get('/mostrar', [ProductController::class, 'show']);
 Route::get('/editar', [ProductController::class, 'edit']);
 Route::put('/actualizar', [ProductController::class, 'update']);
-//Route::patch('/actualizar', [ProductController::class, 'update']);
+Route::patch('/actualizar', [ProductController::class, 'update']);
 Route::delete('/eliminar', [ProductController::class, 'destroy']);
 
 
-
+// Rutas páginas legales:
+Route::view('/aviso-legal', 'app.legal-pages.aviso-legal')->name('aviso-legal');
+Route::view('/politica-privacidad', 'app.legal-pages.politica-privacidad')->name('politica-privacidad');
+Route::view('/politica-cookies', 'app.legal-pages.politica-cookies')->name('politica-cookies');
 
 
 // RUTAS AUTH:
@@ -240,7 +267,7 @@ Route::delete('/eliminar', [ProductController::class, 'destroy']);
 //*****************************************************************************//
 // Ruta del dashboard cuando hacemos login:
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('app.back.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Rutas middleware en grupo asociadas a los métodos edit, update y destroy:

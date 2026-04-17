@@ -1,0 +1,17 @@
+import daisyui from "daisyui";
+export default {
+    compat: true,
+    content: [
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [
+        require("daisyui"),
+    ],
+    daisyui: {
+        themes: ["light"], // activa un tema
+    },
+}

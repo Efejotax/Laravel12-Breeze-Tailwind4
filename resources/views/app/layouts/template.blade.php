@@ -10,14 +10,14 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
 
     {{-- Linkeando estilos en path: public/assets --}}
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/saludos.css')}}">
-    @yield('stilos-css')
+    @yield('estilos-css')
 
 
     {{-- Directiva Blade para importar los estilos css y el JS - definida en Vite.config.js --}}
     {{--Importante: Solo se incluye aquí, en el layout principal--}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @yield('css-extra')
+
 </head>
 
 <body class="bg-gray-100 text-gray-900">
@@ -26,7 +26,7 @@
 <header class="bg-gray-900 text-white">
     <nav class="max-w-7xl mx-auto px-4 flex items-center h-16">
 
-        <!-- LOGO + LINKS IZQUIERDA -->
+        <!-- LOGO + LINKS (A LA IZQUIERDA) -->
         <div class="flex items-center space-x-8">
             <!-- LOGO -->
             <a href="{{ route('index')  }}" class="flex items-center">
@@ -69,18 +69,23 @@
     </nav>
 </header>
 
-
 @yield('main-content')
 
 @yield('menu-rutas-2')
-@yield('menu-rutas-1')
 
+@yield('menu-rutas-1')
 
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-white text-center py-4 mt-10">
     <p>© {{ date('Y') }} Mi Sitio Web - Todos los derechos reservados.</p>
+
+    <div class="mt-3 flex justify-center gap-6 text-sm">
+        <a href="{{ route('aviso-legal') }}" class="hover:text-red-400">Aviso Legal</a>
+        <a href="{{ route('politica-privacidad') }}" class="hover:text-red-400">Política de Privacidad</a>
+        <a href="{{ route('politica-cookies') }}" class="hover:text-red-400">Política de Cookies</a>
+    </div>
 </footer>
 
-@yield('scripts')
+@yield('scripts-js')
 
 </body>
