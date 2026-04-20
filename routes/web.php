@@ -243,6 +243,7 @@ Route::view('saludos/holamundo', 'saludos.holamundo');*/
     })->name('rutas'.$i);
 }*/
 
+//***************************************************************************************************************//
 
 // PRODUCT CONTROLLER tipo RESOURCE:
 use App\Http\Controllers\ProductController;
@@ -255,12 +256,14 @@ Route::put('/actualizar', [ProductController::class, 'update']);
 Route::patch('/actualizar', [ProductController::class, 'update']);
 Route::delete('/eliminar', [ProductController::class, 'destroy']);
 
+//***************************************************************************************************************//
 
 // Rutas páginas legales:
 Route::view('/aviso-legal', 'app.legal-pages.aviso-legal')->name('aviso-legal');
 Route::view('/politica-privacidad', 'app.legal-pages.politica-privacidad')->name('politica-privacidad');
 Route::view('/politica-cookies', 'app.legal-pages.politica-cookies')->name('politica-cookies');
 
+//***************************************************************************************************************//
 
 // RUTAS AUTH:
 // Rutas creadasautomáticamente cuando instalamos Breeze para la autenticación //
@@ -276,5 +279,27 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-require __DIR__.'/auth.php';
+//***************************************************************************************************************//
+
+
+// fallback:
+require __DIR__ . '/auth.php';
+Route::fallback(function () {
+    $url = request()->path();
+    return ("<h1>Esta página $url no existe</h1>");
+});
+
+//***************************************************************************************************************//
+
+// LangController
+use App\Http\Controllers\LangController;
+//Route::post("set_lang", [LangController::class, "__invoke"]);
+Route::post("set_lang",LangController::class)->name("set_lang");
+
+//***************************************************************************************************************//
+
+/*Route::resource("projects", ProjectController::class)->middleware('auth');
+Route::resource("teachers", TeacherController::class)->middleware('auth');
+Route::resource("students", StudentController::class)->middleware('auth');*/
+
 //***************************************************************************************************************//

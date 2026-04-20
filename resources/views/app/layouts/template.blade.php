@@ -68,7 +68,7 @@
         </div>
     </nav>
 </header>
-
+@include('app.partials.header')
 @yield('main-content')
 
 @yield('menu-rutas-2')
