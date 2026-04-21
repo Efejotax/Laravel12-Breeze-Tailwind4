@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Saludo extends Model
 {
     use HasFactory;
+
     // Definimos los campos rellenables
     protected $fillable = [
         'name',
@@ -18,8 +19,10 @@ class Saludo extends Model
     ];
 
     // este method se relaciona con las traducciones common/lang
-    /*static public function getLabels(){
-        return __("saludo");*/
+    static public function getLabels()
+    {
+        return __("saludo");
+    }
 }
 
 

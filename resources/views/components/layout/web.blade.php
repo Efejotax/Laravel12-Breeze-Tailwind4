@@ -88,3 +88,4 @@
 @yield('scripts-js')
 
 </body>
+

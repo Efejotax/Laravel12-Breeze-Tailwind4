@@ -1,6 +1,8 @@
 <?php
 Route::view('/test-saludos', 'saludos')->name('test-saludos');
 
+use App\Http\Controllers\GetPokemonController;
+use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -107,7 +109,6 @@ Route::view('saludos/eliminar', 'saludos.destroy')->name('saludos.eliminar');
 Route::get('/saludos/tarde', [SaludoController::class, 'tarde']);
 Route::get('/saludos/noche', [SaludoController::class, 'noche']);*/
 
-
 // Saludos con CONTROLLER pero sin Vista.
 // Puede retornar un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
 Route::get('/saludos/good-morning', [SaludoController::class, 'goodMorning'])->name('goodMorning');
@@ -118,6 +119,8 @@ Route::get('/saludos/good-night', [SaludoController::class, 'goodNight'])->name(
 // Puede retornar un method con una vista, un texto, un elemento Html o un Heredoc/Nowdoc
 //Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldNowdoc'])->name('helloworld');
 Route::get('/saludos/hello-world', [SaludoController::class, 'helloWorldHeredoc'])->name('helloworld');
+
+//****************************************************************************************************//
 
 
 // Rutas Resource (6 o 7 endpoints)
@@ -268,6 +271,7 @@ Route::view('/politica-cookies', 'app.legal-pages.politica-cookies')->name('poli
 // RUTAS AUTH:
 // Rutas creadasautomáticamente cuando instalamos Breeze para la autenticación //
 //*****************************************************************************//
+
 // Ruta del dashboard cuando hacemos login:
 Route::get('/dashboard', function () {
     return view('app.back.dashboard');
@@ -280,7 +284,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 //***************************************************************************************************************//
-
 
 // fallback:
 require __DIR__ . '/auth.php';
@@ -303,3 +306,15 @@ Route::resource("teachers", TeacherController::class)->middleware('auth');
 Route::resource("students", StudentController::class)->middleware('auth');*/
 
 //***************************************************************************************************************//
+
+// POKEMON API externa
+// ruta métod index()
+/*Route::get('/pokemon', [PokeController::class, 'index'])->name('pokemon.index');
+// ruta metod show()
+Route::get('/pokemon/{name}', [PokeController::class, 'show'])->name('pokemon.show');*/
+
+
+// Controlador de tipo invocable solo tiene un method  __Invoke
+//Route::get('/pokemon', GetPokemonController::class);
+
+Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon');

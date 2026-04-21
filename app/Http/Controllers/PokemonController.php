@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 // Controller de tipo --API: No Create y No Edit.
 //  Dispone de 5 Acciones o Methods: (index, store, show, update, destroy)
@@ -13,7 +14,10 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        //
+        $response = Http::get('https://pokeapi.co/api/v2/pokemon');
+        $pokemons = $response->json()['results'];
+
+        return view('pokemon.index', compact('pokemons'));
     }
 
     /**

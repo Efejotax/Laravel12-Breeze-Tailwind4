@@ -32,6 +32,7 @@
                 <li><a href="{{route('crud')}}" class="text-slate-400 hover:text-red-600">Crud</a></li>
                 <li><a href="{{route('saludos')}}" class="text-slate-400 hover:text-red-600">Saludos</a></li>
                 <li><a href="{{route('orm-crud')}}" class="text-blue-400 hover:text-red-600">CRUD</a></li>
+                <li><a href="{{route('pokemon')}}" class="text-blue-400 hover:text-red-600">Pokemon</a></li>
             </ul>
         </div>
     </div>
