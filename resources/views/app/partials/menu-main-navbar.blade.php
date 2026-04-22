@@ -31,8 +31,11 @@
                 <li><a href="{{route('rutas')}}" class="text-slate-400 hover:text-red-600">Rutas</a></li>
                 <li><a href="{{route('crud')}}" class="text-slate-400 hover:text-red-600">Crud</a></li>
                 <li><a href="{{route('saludos')}}" class="text-slate-400 hover:text-red-600">Saludos</a></li>
-                <li><a href="{{route('orm-crud')}}" class="text-blue-400 hover:text-red-600">CRUD</a></li>
-                <li><a href="{{route('pokemon')}}" class="text-blue-400 hover:text-red-600">Pokemon</a></li>
+                <li><a href="{{route('orm-crud')}}" class="text-slate-400 hover:text-red-600">CRUD</a></li>
+                <li><a href="{{route('api')}}" class="text-blue-400 hover:text-red-600">APIs Ext</a></li>
+                {{--<li><a href="{{route('pokemon.index')}}" class="text-blue-400 hover:text-red-600">Pokémon</a></li>
+                <li><a href="{{ route('pokemon.show', 1) }}" class="text-blue-400 hover:text-red-600">Pokemon show</a></li>--}}
+
             </ul>
         </div>
     </div>

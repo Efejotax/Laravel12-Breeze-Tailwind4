@@ -1,8 +1,8 @@
 <?php
 Route::view('/test-saludos', 'saludos')->name('test-saludos');
 
-use App\Http\Controllers\GetPokemonController;
-use App\Http\Controllers\PokemonController;
+//use App\Http\Controllers\GetPokemonController;
+//use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -317,4 +317,36 @@ Route::get('/pokemon/{name}', [PokeController::class, 'show'])->name('pokemon.sh
 // Controlador de tipo invocable solo tiene un method  __Invoke
 //Route::get('/pokemon', GetPokemonController::class);
 
-Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon');
+/*Route::view('/api', 'api')->name('api');
+Route::get('/pokemon/index', [PokemonController::class, 'index'])->name('pokemon.index');
+Route::get('/pokemon/show/{id}', [PokemonController::class, 'show'])->name('pokemon.show');*/
+
+
+// Ruta a página general de APIs externas:
+Route::view('/api', 'api')->name('api');
+
+// Rutas Únicas invoke pero por web
+use App\Http\Controllers\GetPokemonController;
+// La ruta Web de Pokémon vinculada a controller con method invoke:
+// Ruta: http://localhost:8000/pokemon
+Route::get('/pokemon-invoke', GetPokemonController::class)->name('pokemon.invoke');
+
+use App\Http\Controllers\GetStarWarsController;
+// La ruta Web de StarWars vinculada a controller con method invoke:
+// Ruta: http://localhost:8000/starwars
+Route::get('/starwars-invoke', GetStarWarsController::class)->name('starwars.invoke');
+
+
+//RUTAS DE CONTROLADOR CON SUS METHODS: INDEX y SHOW
+use App\Http\Controllers\PokemonController;
+Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon.index');
+Route::get('/pokemon/{id}', [PokemonController::class, 'show'])->name('pokemon.show');
+
+use App\Http\Controllers\StarWarsController;
+Route::get('/starwars/planetas', [StarWarsController::class, 'index'])->name('planetas.index');
+Route::get('/starwars/planeta/{id}', [StarWarsController::class, 'show'])->name('planeta.show');
+
+
+use App\Http\Controllers\MoviesController;
+Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
+Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('movies.show');

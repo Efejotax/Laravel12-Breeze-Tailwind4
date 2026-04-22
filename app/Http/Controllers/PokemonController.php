@@ -12,12 +12,32 @@ class PokemonController extends Controller
     /**
      * Display a listing of the resource. Acción: Listar mostrar todos los recursos
      */
-    public function index()
+    public function index(Request $request)
     {
-        $response = Http::get('https://pokeapi.co/api/v2/pokemon');
+        // metodo para una vista simple de Pokemons a partir de este endpoint:
+        /*$response = Http::get('https://pokeapi.co/api/v2/pokemon');
         $pokemons = $response->json()['results'];
 
-        return view('pokemon.index', compact('pokemons'));
+        return view('pokemon.index', compact('pokemons'));*/
+
+        // Method de listado con paginación:
+        $page = $request->get('page', 1);
+        $limit = 24; // Pokémon por página
+        $offset = ($page - 1) * $limit;
+
+        $response = Http::get("https://pokeapi.co/api/v2/pokemon?offset={$offset}&limit={$limit}");
+
+        if (! $response->successful()) {
+            abort(500, 'Error al obtener los Pokémon');
+        }
+
+        $data = $response->json();
+
+        return view('pokemon.index', [
+            'pokemons' => $data['results'],
+            'previous' => $page > 1 ? $page - 1 : null,
+            'next' => $data['next'] ? $page + 1 : null,
+        ]);
     }
 
     /**
@@ -34,7 +54,15 @@ class PokemonController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $response = Http::get("https://pokeapi.co/api/v2/pokemon/{$id}");
+
+        if (! $response->successful()) {
+            abort(404, 'Pokémon no encontrado');
+        }
+
+        $pokemon = $response->json();
+
+        return view('pokemon.show', compact('pokemon'));
     }
 
     /**

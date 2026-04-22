@@ -13,6 +13,8 @@ class GetPokemonController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // API ennpoint: https://pokeapi.co/api/v2/
+        // Comando: php artisan make:controller GetPokemonController --invokable
         //return ['pokemon' => 'Pikachu'];
 
         // sin vista, solo pinta el JSON
