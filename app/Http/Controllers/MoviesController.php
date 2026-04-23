@@ -10,28 +10,21 @@ class MoviesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $page = $request->get('page', 1);
-        $limit = 6; // ← 6 tarjetas por página
-        $offset = ($page - 1) * $limit;
-
-        $response = Http::get("https://api.imdbapi.dev/titles?offset={$offset}&limit={$limit}");
+        $response = Http::get("https://api.imdbapi.dev/titles");
 
         if (! $response->successful()) {
             abort(500, 'Error al obtener las Películas');
         }
 
         $data = $response->json();
-        $movies = $data['titles'];
+        $movies = $data['titles'] ?? [];
 
         return view('movies.index', [
-            'movies' => $movies,
-            'previous' => $page > 1 ? $page - 1 : null,
-            'next' => isset($data['next']) ? $page + 1 : null,
+            'movies' => $movies
         ]);
     }
-
 
     /**
      * Store a newly created resource in storage.

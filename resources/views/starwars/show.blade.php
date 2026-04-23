@@ -15,7 +15,7 @@
 
                 {{-- Imagen genérica de planeta --}}
                 <img
-                    src="https://static.vecteezy.com/system/resources/previews/009/384/704/non_2x/planet-icon-design-free-png.png"
+                    src="{{asset('assets/img/planetas-stw.jpg')}}"
                     alt="{{ $planeta['properties']['name'] }}"
                     class="w-48 mx-auto drop-shadow-lg"
                 >
@@ -50,7 +50,7 @@
 
             {{-- Botón volver --}}
             <div class="mt-10 text-center">
-                <a href="{{ url()->previous() }}"
+                <a href="{{ url()->previous()}}"
                    class="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">
                     Volver
                 </a>

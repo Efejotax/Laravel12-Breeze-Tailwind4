@@ -12,7 +12,7 @@ class GetMoviesController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // API ennpoint: https://api.imdbapi.dev/titles
+        // API endpoint: https://api.imdbapi.dev/titles
         // Comando: php artisan make:controller GetMoviesController --invokable
         /*return ['title' => '{uid}'];
         return ['title' => '{id}'];

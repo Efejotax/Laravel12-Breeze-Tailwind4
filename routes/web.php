@@ -346,7 +346,19 @@ use App\Http\Controllers\StarWarsController;
 Route::get('/starwars/planetas', [StarWarsController::class, 'index'])->name('planetas.index');
 Route::get('/starwars/planeta/{id}', [StarWarsController::class, 'show'])->name('planeta.show');
 
-
 use App\Http\Controllers\MoviesController;
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('movies.show');
+
+use App\Http\Controllers\RickAndMortyController;
+Route::get('/rickandmorty/character', [RickAndMortyController::class, 'index'])->name('rickandmorty.index');
+Route::get('/rickandmorty/character/{id}', [RickAndMortyController::class, 'show'])->name('rickandmorty.show');
+
+use App\Http\Controllers\HarryPotterController;
+Route::get('/harrypotter/character', [HarryPotterController::class, 'index'])->name('harrypotter.index');
+Route::get('/harrypotter/character/{id}', [HarryPotterController::class, 'show'])->name('harrypotter.show');
+
+use App\Http\Controllers\TheSimpsomsController;
+Route::get('/thesimpsoms/character', [TheSimpsomsController::class, 'index'])->name('thesimpsoms.index');
+Route::get('/thesimpsoms/character/{id}', [TheSimpsomsController::class, 'show'])->name('thesimpsoms.show');
+

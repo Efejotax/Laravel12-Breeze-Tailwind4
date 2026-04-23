@@ -3,7 +3,7 @@
 
     <img class="max-h-full w-30" src="{{ asset('assets/img/logo.png') }}" alt="logo">
 
-    <h1 class="text-3xl xl:text-5xl text-gray-700">{{ __("[ ORM / CRUD ]") }}</h1>
+    <h1 class="text-3xl xl:text-5xl text-gray-700">{{ __("[ API / ORM / CRUD ]") }}</h1>
 
     <div class="space-x-2 flex flex-row">
 
