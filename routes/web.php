@@ -3,7 +3,18 @@ Route::view('/test-saludos', 'saludos')->name('test-saludos');
 
 //use App\Http\Controllers\GetPokemonController;
 //use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\Api\GetPokemonController;
+use App\Http\Controllers\Api\GetStarWarsController;
+use App\Http\Controllers\Api\HarryPotterController;
+use App\Http\Controllers\Api\MoviesController;
+use App\Http\Controllers\Api\PokemonController;
+use App\Http\Controllers\Api\RickAndMortyController;
+use App\Http\Controllers\Api\StarWarsController;
+use App\Http\Controllers\Api\TheSimpsomsController;
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaludoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -72,7 +83,6 @@ Route::view('/productos', 'app/front/productos')->name('productos');
 Route::view('/orm-crud', 'app/front.orm-crud')->name('orm-crud');
 
 // SALUDO CONTROLLER
-use App\Http\Controllers\SaludoController;
 //Route::view('/saludos', 'saludos');
 /*Route::get('/saludos', function () {
     return view('/saludos');
@@ -249,7 +259,6 @@ Route::view('saludos/holamundo', 'saludos.holamundo');*/
 //***************************************************************************************************************//
 
 // PRODUCT CONTROLLER tipo RESOURCE:
-use App\Http\Controllers\ProductController;
 Route::get('/listar', [ProductController::class, 'index']);
 Route::get('/crear', [ProductController::class, 'create']);
 Route::post('/almacenar', [ProductController::class, 'store']);
@@ -295,9 +304,17 @@ Route::fallback(function () {
 //***************************************************************************************************************//
 
 // LangController
-use App\Http\Controllers\LangController;
 //Route::post("set_lang", [LangController::class, "__invoke"]);
 Route::post("set_lang",LangController::class)->name("set_lang");
+
+Route::get('/lang/{locale}', function (string $locale) {
+    if (! in_array($locale, ['es', 'en'])) {
+        abort(400);
+    }
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('lang.switch');
+
 
 //***************************************************************************************************************//
 
@@ -326,39 +343,31 @@ Route::get('/pokemon/show/{id}', [PokemonController::class, 'show'])->name('poke
 Route::view('/api', 'api')->name('api');
 
 // Rutas Únicas invoke pero por web
-use App\Http\Controllers\GetPokemonController;
 // La ruta Web de Pokémon vinculada a controller con method invoke:
 // Ruta: http://localhost:8000/pokemon
 Route::get('/pokemon-invoke', GetPokemonController::class)->name('pokemon.invoke');
 
-use App\Http\Controllers\GetStarWarsController;
 // La ruta Web de StarWars vinculada a controller con method invoke:
 // Ruta: http://localhost:8000/starwars
 Route::get('/starwars-invoke', GetStarWarsController::class)->name('starwars.invoke');
 
 
 //RUTAS DE CONTROLADOR CON SUS METHODS: INDEX y SHOW
-use App\Http\Controllers\PokemonController;
 Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon.index');
 Route::get('/pokemon/{id}', [PokemonController::class, 'show'])->name('pokemon.show');
 
-use App\Http\Controllers\StarWarsController;
 Route::get('/starwars/planetas', [StarWarsController::class, 'index'])->name('planetas.index');
 Route::get('/starwars/planeta/{id}', [StarWarsController::class, 'show'])->name('planeta.show');
 
-use App\Http\Controllers\MoviesController;
 Route::get('/movies', [MoviesController::class, 'index'])->name('movies.index');
 Route::get('/movies/{id}', [MoviesController::class, 'show'])->name('movies.show');
 
-use App\Http\Controllers\RickAndMortyController;
 Route::get('/rickandmorty/character', [RickAndMortyController::class, 'index'])->name('rickandmorty.index');
 Route::get('/rickandmorty/character/{id}', [RickAndMortyController::class, 'show'])->name('rickandmorty.show');
 
-use App\Http\Controllers\HarryPotterController;
 Route::get('/harrypotter/character', [HarryPotterController::class, 'index'])->name('harrypotter.index');
 Route::get('/harrypotter/character/{id}', [HarryPotterController::class, 'show'])->name('harrypotter.show');
 
-use App\Http\Controllers\TheSimpsomsController;
 Route::get('/thesimpsoms/character', [TheSimpsomsController::class, 'index'])->name('thesimpsoms.index');
 Route::get('/thesimpsoms/character/{id}', [TheSimpsomsController::class, 'show'])->name('thesimpsoms.show');
 

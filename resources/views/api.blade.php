@@ -43,13 +43,13 @@
             </a>
 
             {{-- Tarjetas - Harry Potter API --}}
-            <a href="{{route('harrypotter.invoke')}}" class="block bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
-                <h2 class="text-xl font-semibold mb-2">Harry Potter API method invoke</h2>
-                <p class="text-gray-600">Personajes de Harry Potter en formato JSON</p>
-            </a>
             <a href="{{route('harrypotter.index')}}" class="block bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
                 <h2 class="text-xl font-semibold mb-2">Harry Potter API method index</h2>
                 <p class="text-gray-600">Personajes de Harry Potter en la vista Blade</p>
+            </a>
+            <a href="{{route('harrypotter.invoke')}}" class="block bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition">
+                <h2 class="text-xl font-semibold mb-2">Harry Potter API method invoke</h2>
+                <p class="text-gray-600">Personajes de Harry Potter en formato JSON</p>
             </a>
 
             {{-- Tarjetas - Películas API --}}

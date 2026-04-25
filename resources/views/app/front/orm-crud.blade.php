@@ -10,6 +10,53 @@
         <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">
             ORM & CRUD
         </h1>
+        {{--Cuatro tarjetas en una fila para enlazar a los CRUD de Estudiantes, Profesores, Proyectos y Productos--}}
+        <div class="max-w-6xl mx-auto mt-10 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card Estudiantes -->
+                <a href="{{route('students.index')}}"
+                   class="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg transition">
+                    <img src="/assets/img/crud-imagen.png"
+                         class="mx-auto max-w-[120px] h-auto object-contain mb-4"
+                         alt="Estudiantes">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Estudiantes</h2>
+                    <p class="text-gray-600">Gestionar CRUD de estudiantes.</p>
+                </a>
+
+                <!-- Card Profesores -->
+                <a href="#"
+                   class="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg transition">
+                    <img src="/assets/img/crud-imagen.png"
+                         class="mx-auto max-w-[120px] h-auto object-contain mb-4"
+                         alt="Profesores">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Profesores</h2>
+                    <p class="text-gray-600">Gestionar CRUD de profesores.</p>
+                </a>
+
+                <!-- Card Proyectos -->
+                <a href="#"
+                   class="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg transition">
+                    <img src="/assets/img/crud-imagen.png"
+                         class="mx-auto max-w-[120px] h-auto object-contain mb-4"
+                         alt="Proyectos">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Proyectos</h2>
+                    <p class="text-gray-600">Gestionar CRUD de proyectos.</p>
+                </a>
+
+                <!-- Card Productos -->
+                <a href="#"
+                   class="bg-white rounded-lg shadow p-6 text-center hover:shadow-lg transition">
+                    <img src="/assets/img/crud-imagen.png"
+                         class="mx-auto max-w-[120px] h-auto object-contain mb-4"
+                         alt="Productos">
+                    <h2 class="text-xl font-semibold mb-2 text-gray-800">Productos</h2>
+                    <p class="text-gray-600">Gestionar CRUD de productos.</p>
+                </a>
+
+            </div>
+        </div>
+
 
         @php
             $items = [
