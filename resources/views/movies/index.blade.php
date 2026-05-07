@@ -1,5 +1,6 @@
 @extends('app.layouts.template')
 @section('titulo', 'IMDB Movies API Index')
+
 @section('main-content')
 
     <div class="container mx-auto py-8">
@@ -8,6 +9,8 @@
         {{-- 10 filas × 5 columnas = 50 películas --}}
         <div class="grid grid-cols-5 gap-4">
             @foreach ($movies as $movie)
+            {{--@dd($movies[0])--}}
+
                 <div class="p-4 border rounded shadow bg-white hover:shadow-lg transition">
 
                     {{-- Título --}}
@@ -24,9 +27,9 @@
                         >
                     @endif
 
-                    {{-- Enlace al detalle --}}
+                    {{-- Botón de detalle --}}
                     <a href="{{ route('movies.show', $movie['id']) }}"
-                       class="text-blue-600 text-sm underline block mt-2">
+                       class="mt-3 inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-700 transition">
                         Ver detalle
                     </a>
 
@@ -35,4 +38,5 @@
         </div>
 
     </div>
+
 @endsection

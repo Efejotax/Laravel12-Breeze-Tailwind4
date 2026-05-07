@@ -40,8 +40,23 @@ class MoviesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Llamada a la API externa
+//        $response = Http::get("https://imdbapi.dev/api/v1/title/{$id}");
+        $response = Http::get("https://imdbapi.dev/api/v1/titles/{$id}");
+
+
+        // Si la API falla
+        if ($response->failed()) {
+            abort(404, "No se pudo obtener la información de la película.");
+        }
+
+        // Convertir a JSON
+        $movie = $response->json();
+
+        // Enviar a la vista
+        return view('movies.show', compact('movie'));
     }
+
 
     /**
      * Update the specified resource in storage.
